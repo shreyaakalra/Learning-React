@@ -3,7 +3,31 @@
   <head>
     <title>Lesson 4 Exercises</title>
     <style>
-        
+        .login-button{
+          background-color: rgb(0, 123, 255);
+          color: white;
+          margin-right: 5px;
+          border-radius: 3px;
+          border: 0px;
+          width: 70px;
+          height: 25px;
+        }
+        .signup-button{
+          background-color: rgb(0, 123, 255);
+          color: white;
+          border-radius: 3px;
+          border: 0px;
+          width: 70px;
+          height: 25px;
+        }
+        .email-box{
+          margin-bottom: 5px;
+          height: 20px;
+        }
+        .password-box{
+          margin-right: 5px;
+          height: 20px;
+        }
     </style>
   </head>
   <body>
@@ -20,15 +44,19 @@
 
       function App(){
 
-        
+        const [showPassword, setShowPassword] = React.useState(true);
+
+
         return(
           <div>
             <p>Hello, welcome to my website</p>
             <div>
-              <input placeholder="Email" type="text" />
+              <input placeholder="Email" type="text" className="email-box" />
               <div>
-                <input placeholder="Password" type="text" />
-                <button>Show</button>
+                <input placeholder="Password" type={showPassword ? "password" : "text"} className="password-box" />
+                <button onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? "Show" : "Hide"}
+                </button>
               </div>
               <br></br>
               <button className="login-button">Login</button>
