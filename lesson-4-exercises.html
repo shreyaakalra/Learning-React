@@ -19,21 +19,39 @@
       
 
       function App(){
-        
-        const [time, setTime] = React.useState(()=>{
-          return dayjs().format('HH:mm:ss');
-        });
 
-        React.useEffect(()=>{
-          console.log("tick-tock");
+        const[counter, setCounter] = React.useState(0);
+        const autoClicker = React.useRef();
+
+        function pressButton(){
+          setCounter(counter+1);
+        }
+
+        function clickAuto(){
           setInterval(()=>{
-            setTime(dayjs().format('HH:mm:ss'));
-          },1000);
-        },[]);
+            const autoRef = autoClicker.current;
+            if(autoRef){
+              autoRef.click();
+            }
+          },1000)
+        }
 
         return(
           <div>
-            <p>Current Time : {time}</p>
+            <button 
+              onClick={pressButton}
+              ref={autoClicker}
+            >
+              Clicked {counter} time
+            </button>
+            <button onClick={()=>setCounter(0)}>
+              Reset
+            </button>
+            <button 
+              onClick={clickAuto}
+            >
+              Auto Click
+            </button>
           </div>
         );
         
