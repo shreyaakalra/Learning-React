@@ -3,7 +3,43 @@
   <head>
     <title>Lesson 4 Exercises</title>
     <style>
-        
+        body{
+          margin-top: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .autoclick-button{
+          background-color: rgb(25, 135, 84);
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+        .reset-button{
+          background-color: rgb(25, 135, 84);
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+        .counter-button{
+          background-color: rgb(25, 135, 84);
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+        .all-buttons{
+          display: flex;
+          justify-content: center;
+          height: 100vh;
+          background-color: rgb(200, 200, 200);
+          align-items: center;
+        }
     </style>
   </head>
   <body>
@@ -37,18 +73,20 @@
         }
 
         return(
-          <div>
+          <div className="all-buttons">
             <button 
               onClick={pressButton}
               ref={autoClicker}
+              className="counter-button"
             >
               Clicked {counter} time
             </button>
-            <button onClick={()=>setCounter(0)}>
+            <button onClick={()=>setCounter(0)} className="reset-button">
               Reset
             </button>
             <button 
               onClick={clickAuto}
+              className="autoclick-button"
             >
               Auto Click
             </button>
