@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import LoadingGif from '../assets/loading-spinner-1.gif';
 import { Chatbot } from 'supersimpledev'
+import dayjs from 'dayjs';
 
 export function ChatInput({chatMessages, setChatMessages, isLoading, setIsLoading}){
 
@@ -22,13 +23,15 @@ export function ChatInput({chatMessages, setChatMessages, isLoading, setIsLoadin
             {
               message: inputText,
               sender: 'user',
-              id: crypto.randomUUID()
+              id: crypto.randomUUID(),
+              timestamp: dayjs().valueOf()
             },
             {
               message: <img src={LoadingGif}
               className="loading-gif" />,
               sender: "robot",
               id: "loading",
+              timestamp: dayjs().valueOf()
             }
           ];
 
@@ -42,7 +45,8 @@ export function ChatInput({chatMessages, setChatMessages, isLoading, setIsLoadin
             {
               message: response,
               sender: 'robot',
-              id: crypto.randomUUID()
+              id: crypto.randomUUID(),
+              timestamp: dayjs().valueOf()
             }
           ]);
 

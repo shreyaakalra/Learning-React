@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useEffect } from 'react'
 import { ChatMessage } from './ChatMessage';
 
+
 function useAutoScroll(dependencies){
         const chatMessagesRef = useRef(null);
 
@@ -27,7 +28,8 @@ export function ChatMessages({chatMessages}){
               <ChatMessage
                 message={chatMessage.message}
                 sender={chatMessage.sender}
-                key={chatMessage.id}   
+                key={chatMessage.id} 
+                timestamp={chatMessage.timestamp}
               />
             );
                 
