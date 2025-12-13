@@ -8,7 +8,7 @@ import './App.css'
 function App(){
 
        const [isLoading, setIsLoading] = useState(false);
-       const [chatMessages, setChatMessages] = useState([]);
+       const [chatMessages, setChatMessages] = useState(JSON.parse(localStorage.getItem('messages')) || []);
 
        useEffect(()=>{
         Chatbot.addResponses({
@@ -19,6 +19,10 @@ function App(){
           'shut up' : 'you shut up'
         })
        },[])
+
+       useEffect(()=>{
+        localStorage.setItem('messages', JSON.stringify(chatMessages));
+       }, [chatMessages]);
 
 
         return(
