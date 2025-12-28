@@ -1,10 +1,12 @@
-import './header.css';
+import './Homepage-header.css';
 import './Homepage.css';
+
 
 export function HomePage(){
 
     return(
         <>
+            <title>Ecommerce website</title>
             <div className="header">
 
                 <div className="left-section">
