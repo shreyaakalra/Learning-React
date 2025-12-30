@@ -1,4 +1,5 @@
 import { Header }  from '../components/Headers.jsx';
+import { products } from '../../starting-code/data/products.js'
 import './Homepage.css';
 
 
@@ -14,8 +15,10 @@ export function HomePage(){
 
             <div className="home-page">
                 <div className="products-grid">
-                    <div className="product-container">
-
+                    {products.map((product) => {
+                        return (
+                            <>
+                            <div key={product.id} className="product-container">
                         <div className="product-image-container">
                             <img className="product-image"
                             src="images/products/athletic-cotton-socks-6-pairs.jpg" />
@@ -163,8 +166,11 @@ export function HomePage(){
                                 </button>
 
                             </div>
+                            </>
+                        );
+                    })}
+                    
                 </div>
-                
             </div>  
         </>
     );
