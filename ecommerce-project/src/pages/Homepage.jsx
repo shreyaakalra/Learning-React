@@ -1,21 +1,19 @@
 import { Header } from "../components/Headers.jsx";
+import axios from 'axios';
 import { products } from "../../starting-code/data/products.js";
 import "./Homepage.css";
 
 export function HomePage() {
 
-  fetch('http://localhost:3000/api/products')
+  axios.get('http://localhost:3000/api/products')
     .then((response) => {
-        return response.json();
-      }).then((data)=>{
-        console.log(data);
+        console.log(response.data);
       });
 
 
   return (
     <>
       <title>Ecommerce website</title>
-      console.log(title);
 
       <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
 
