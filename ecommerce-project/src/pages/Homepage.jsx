@@ -18,7 +18,7 @@ export function HomePage() {
         .then((response) => {
           setCart(response.data);
         });
-  },[])
+  },[]);
 
 
 
