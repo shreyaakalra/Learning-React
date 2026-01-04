@@ -1,21 +1,35 @@
 import { Header }  from '../components/Headers.jsx';
 import './Orders.css';
 import { Link } from 'react-router';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
-export function Orders() {
+export function Orders({cart=[]}) {
+  const [orders,setOrders] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/orders?expand=products')
+      .then((response)=>{
+        setOrders(response.data);
+    })
+  },[])
+
+
   return (
     <>
       <title>Orders</title>
 
       <link rel="icon" type="image/svg+xml" to="orders-favicon.png" /> 
 
-      <Header />
+      <Header cart={cart} />
 
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
-
         <div className="orders-grid">
+
+
           <div className="order-container">
+            // here
             <div className="order-header">
               <div className="order-header-left-section">
                 <div className="order-date">
